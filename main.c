@@ -5,7 +5,7 @@
 #include "binary_buffer.h"
 #include "binary_tree.h"
 
-void print_tree_hash(binary_tree* tree) {
+void print_tree_values(binary_tree* tree) {
     if (!tree->is_value_null) {
         putchar(tree->value);
     } else {
@@ -14,12 +14,12 @@ void print_tree_hash(binary_tree* tree) {
 
     if (tree->left != NULL) {
         printf("recursing...\n");
-        print_tree_hash(tree->left);
+        print_tree_values(tree->left);
     }
 
     if (tree->right != NULL) {
         printf("recursing...\n");
-        print_tree_hash(tree->right);
+        print_tree_values(tree->right);
     }
 }
 
@@ -46,8 +46,8 @@ int main() {
     }
 
     binary_tree* decoded_tree = decode_tree(encoded_tree);
-    print_tree_hash(decoded_tree);
+    print_tree_values(decoded_tree);
     printf(" decoded_tree\n");
-    print_tree_hash(tree);
+    print_tree_values(tree);
     printf(" original_tree\n");
 }
