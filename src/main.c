@@ -23,15 +23,25 @@ void print_tree_values(binary_tree* tree) {
     }
 }
 
+void print_usage() {
+    printf("Usage:\n");
+    printf("    ./huffman encode <file_to_encode> <output filename>\n");
+    printf("    ./huffman decode <file_to_decode>\n");
+}
+
 int main(int argc, char* argv[]) {
-    if (argc < 4) {
-        printf("Usage:\n");
-        printf("    ./huffman [encode/decode] <file_to_encode> <output filename>\n");
+    if (argc < 2) {
+        print_usage();
         return 1;
     }
 
     char* action = argv[1];
     if (strcmp(action, "encode") == 0) {
+        if (argc < 4) {
+            print_usage();
+            return 1;
+        }
+
         FILE* fptr;
         fptr = fopen(argv[2], "r");
 
@@ -56,8 +66,20 @@ int main(int argc, char* argv[]) {
 
         encode_to_file(file_contents, argv[3]);
     }
-    
 
-    char* decoded = decode_from_file("encoded.bin");
-    printf("decoded: %s\n", decoded);
+    if (strcmp(action, "decode") == 0) {
+        if (argc < 3) {
+            print_usage();
+            return 1;
+        }
+
+        char* decoded = decode_from_file(argv[2]);
+        if (decoded == NULL) {
+            printf("Failed to decode file!\n");
+            printf("%s\n", strerror(errno));
+            return 1;
+        }
+        
+        printf("%s\n", decoded);
+    }
 }
