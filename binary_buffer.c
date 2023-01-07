@@ -58,3 +58,15 @@ void write_byte(binary_buffer* buf, uint8_t byte) {
     buf->temp = byte;
     flush(buf);
 }
+
+uint8_t has_next_bit(binary_buffer* buf, uint32_t index) {
+    if (index >= buf->length) {
+        return 0;
+    }
+
+    if (index == buf->length - 1) {
+        return buf->temp_ind != 7;
+    }
+
+    return 1;
+}
