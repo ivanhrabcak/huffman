@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "binary_tree.h"
-#include "binary_buffer.h"
-#include "array_list.h"
+#include "data_structures/binary_tree.h"
+#include "data_structures/binary_buffer.h"
+#include "data_structures/array_list.h"
 
 typedef struct {
     char c;

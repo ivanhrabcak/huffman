@@ -1,8 +1,8 @@
 #include <stdint.h>
 
-#include "binary_tree.h"
-#include "binary_buffer.h"
-#include "array_list.h"
+#include "data_structures/binary_tree.h"
+#include "data_structures/binary_buffer.h"
+#include "data_structures/array_list.h"
 
 void increment_character_count(char c, array_list* list);
 uint32_t lookup_character_count(char c, array_list* list);

@@ -4,24 +4,10 @@
 #include <string.h>
 #include <errno.h>
 
-#include "binary_buffer.h"
-#include "binary_tree.h"
-#include "array_list.h"
+#include "data_structures/binary_buffer.h"
+#include "data_structures/binary_tree.h"
+#include "data_structures/array_list.h"
 #include "huffman.h"
-
-void print_tree_values(binary_tree* tree) {
-    if (!tree->is_value_null) {
-        putchar(tree->value);
-    }
-
-    if (tree->left != NULL) {
-        print_tree_values(tree->left);
-    }
-
-    if (tree->right != NULL) {
-        print_tree_values(tree->right);
-    }
-}
 
 void print_usage() {
     printf("Usage:\n");
@@ -79,7 +65,7 @@ int main(int argc, char* argv[]) {
             printf("%s\n", strerror(errno));
             return 1;
         }
-        
+
         printf("%s\n", decoded);
     }
 }
