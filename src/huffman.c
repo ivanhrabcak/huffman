@@ -179,10 +179,6 @@ binary_buffer* huffman_encode(char* s, binary_tree* tree) {
     char* path = NULL;
 
     generate_tree_paths(tree, paths, &path);
-    for (int i = 0; i < paths->length; i++) {
-        tree_path* p = (tree_path*) paths->array[i];
-        printf("%s => %c\n", p->path, p->c);
-    }
 
     binary_buffer* encoded = initialize_buffer();
 
@@ -219,10 +215,6 @@ char* huffman_decode(binary_tree* tree, binary_buffer* encoded) {
     char* path = NULL;
 
     generate_tree_paths(tree, paths, &path);
-    for (int i = 0; i < paths->length; i++) {
-        tree_path* p = (tree_path*) paths->array[i];
-        printf("%s => %c\n", p->path, p->c);
-    }
 
     free(path);
 
@@ -247,9 +239,7 @@ char* huffman_decode(binary_tree* tree, binary_buffer* encoded) {
             free(path);
             path = NULL;
             path_length = 1;
-        } //else {
-            // printf("no matching char %s\n", path);
-        // }
+        }
     }
 
     return decoded;

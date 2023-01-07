@@ -63,8 +63,6 @@ binary_buffer* encode_tree(binary_tree* tree) {
     uint8_t b2 = (amount_of_nodes & 0b1111111100000000) >> 8;
     uint8_t b1 = amount_of_nodes & 0b0000000011111111;
 
-    printf("Encoding - there will be %d nodes\n", amount_of_nodes);
-
     binary_buffer* output = initialize_buffer();
     
     write_byte(output, b1);
@@ -77,8 +75,6 @@ binary_buffer* encode_tree(binary_tree* tree) {
     for (int i = 0; i < encoded_tree->length; i++) {
         write_byte(output, encoded_tree->buf[i]);
     }
-
-    printf("encoding tree %d %d\n", encoded_tree->buf[0], encoded_tree->buf[1]);
 
     free(encoded_tree);
     free(flags);
@@ -125,7 +121,6 @@ binary_tree* decode_tree(binary_buffer* tree, uint32_t* end_index) {
 
     // magic
     uint16_t amount_of_nodes = (uint16_t)((d2 << 8) + (d1 & 0x00ff));
-    printf("Decoded - there will be %d nodes\n", amount_of_nodes);
 
     uint32_t flag_bits = amount_of_nodes * 3;
     uint32_t flag_bytes = (flag_bits + (8 - flag_bits % 8)) / 8;

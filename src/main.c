@@ -37,7 +37,7 @@ int main(int argc, char* argv[]) {
         }
 
         char* file_contents = NULL;
-        uint32_t size = 1;
+        uint32_t size = 0;
 
         char c;
         while ((c = fgetc(fptr)) != EOF) {
