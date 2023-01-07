@@ -12,6 +12,8 @@ binary_tree* initialize_node() {
     tree->value = ' ';
     tree->left = NULL;
     tree->right = NULL;
+
+    return tree;
 }
 
 binary_buffer* encode_internal(binary_tree* tree, binary_buffer* flags, uint16_t* amount_of_nodes) {

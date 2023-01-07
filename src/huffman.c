@@ -158,6 +158,8 @@ char* lookup_tree_path_by_char(array_list* paths, char c) {
 
         return p->path;
     }
+
+    return NULL;
 }
 
 char* lookup_char_by_tree_path(array_list* paths, char* path) {

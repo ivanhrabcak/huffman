@@ -10,6 +10,8 @@ binary_buffer* initialize_buffer() {
     b->temp = 0;
     b->temp_ind = 0;
     b->buf = NULL;
+
+    return b;
 }
 
 void write_bit(binary_buffer* buf, uint8_t bit) {

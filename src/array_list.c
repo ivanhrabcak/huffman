@@ -12,6 +12,8 @@ array_list* initialize_array_list(size_t element_size) {
     l->length = 0;
     l->array = NULL;
     l->element_size = element_size;
+
+    return l;
 }
 
 void append(array_list* list, void* item) {
